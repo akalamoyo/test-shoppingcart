@@ -7,6 +7,16 @@ def test_add_item(cart):
     assert cart._items == {"apple": 1}
 
 
+def test_add_item_multiple_times(cart):
+    """
+    Test addition of same item multiple times to cart
+    """
+    cart.add_item("kiwi", 1)
+    cart.add_item("kiwi", 1)
+
+    assert cart._items == {"kiwi": 2}
+
+
 def test_add_item_with_multiple_quantity(cart):
     """
     Test addition of single item with multiple quantities to cart
