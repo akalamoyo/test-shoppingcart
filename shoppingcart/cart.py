@@ -56,7 +56,7 @@ class ShoppingCart(base.ShoppingCart):
 
         self._items = dict()
 
-    def print_receipt(self) -> List[str]:
+    def print_receipt(self, write_to_file=True) -> List[str]:
         """
         Generate receipt, total_cost and quantity of item(s) in cart
         """
@@ -89,7 +89,9 @@ class ShoppingCart(base.ShoppingCart):
         )
 
         logger.info("Cart checked out successfully")
-        self._write_cart_data()
+
+        if write_to_file:
+            self._write_cart_data_to_file()
         return item_lines
 
     def _get_product_price(self, product_code: str) -> float:
@@ -106,10 +108,9 @@ class ShoppingCart(base.ShoppingCart):
         }
         return product_code_with_price.get(product_code, None)
 
-    def _write_cart_data(self):
+    def _write_cart_data_to_file(self):
         """
-        Write cart_data to json file. Can be easily parsed to get required info
-        # for debugging or audit purposes. A database can also be used.
+        Assign reference number and write cart_data to json file.
         """
 
         with open(CART_DATA_FILEPATH) as outfile:

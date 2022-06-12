@@ -42,5 +42,16 @@
         "total_quantity": 5,
         "currency": "\u20ac",
         "total_cost": 11.0
+    },
+    {
+        "cart_reference_number": 104,
+        "items": [
+            "apple - 2 - \u20ac2.00",
+            "kiwi - 3 - \u20ac9.00",
+            "Total - \u20ac11.00"
+        ],
+        "total_quantity": 5,
+        "currency": "\u20ac",
+        "total_cost": 11.0
     }
 ]
