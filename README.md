@@ -4,21 +4,22 @@ Unit test run
 # Moyo's comments
 
 Assumptions:
-- The directive to not change the abstract class (abc.ShoppingCart) concerns the class name and not the declared abstract methods in the class. Meaning, additional methods can be added.
+- The directive to not change the abstract class (abc.ShoppingCart) concerns the class name and not the declared abstract methods in the class. Meaning, other relevant abstract methods can be added to class.
 - The print_receipt method, when called, represents the last step of shopping cart, basically means check out to payment.
 
 What was done:
-- Renamed the abc.py file to base.py because  abc.py is the name of the standard library module that is essential for the Python interpreter internals hence an improper shadowing occurs
+- Renamed the abc.py file to base.py because abc.py is the name of the standard library module that is essential for the Python interpreter internals hence an improper shadowing occurs.
 - Used a yaml file to store prices because of its easy readability. A proper assessment should be conducted for production purposes. 
 - Added new abstract methods: remove_item and empty_cart; because it logically makes sense. You should be able to add, remove and empty your cart. 
-- Added cart_data dictionary to collect cart data upon printing receipt. This can be added to the session data in the wider system
+- Added a unique cart reference number for each successful cart checkout. this can be useful for debug and audit purposes.
+- Added cart_data dictionary to collect cart data upon printing receipt. This can be added to the session data in the wider system.
+- Output cart data to json file for every successful cart checkout.
 - Added a logger to capture logs for debugging. This might already exist in the wider system
-- Used a config test file to cater for repeated instantiation of cart
+- Used a config file for tests to cater for repeated instantiation of cart
 - Moved file paths to config. It is better for code maintenance
 - Defined list of acceptable currencies in config because this is generally static information which can be updated as required.
 - Added a requirements.txt file though this would probably already exist in the wider system
-- Pushing all changes a single commit to enable the examiners see the changes against the original code easily.
-- Code formatted locally with isort (for structuring imports) and black (for general code structure). These can be added to the pipeline in production to ensure code merged to prod branch is of top format.
+- Code formatted locally with isort (for structuring imports) and black (for general code structure). These libraries can be added to the pipeline in production to ensure code merged to prod/master/main branch follows a structured-pythonic format.
 
 
 # Shopping cart
